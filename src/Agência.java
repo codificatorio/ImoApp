@@ -1,0 +1,5 @@
+class Agência {
+    
+    Morada morada;
+    
+}

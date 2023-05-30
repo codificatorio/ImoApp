@@ -1,0 +1,16 @@
+
+import java.time.LocalDate;
+
+
+class Imóvel {
+
+    String tipo;
+    boolean emVenda;
+
+    Morada morada;
+
+    int preço;
+
+    java.time.LocalDate dataDeLicenciamento;
+
+}
