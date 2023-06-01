@@ -1,19 +1,23 @@
 
 public class ImoApp {
+    
+    static GUI interfaceGráfica;
 
     public static void main(String[] args) {
         System.out.println("Bem-vindos à ImoApp");
-        BaseDeDados db = new BaseDeDados(); // Data TIER (componente que permite guardar valores)
-        Imobiliária remax = new Imobiliária(db); // Business TIER (algoritmos do nosso negócio)
-        GUI interfaceGráfica = new GUI(remax); // Client TIER (componentes utilizados pelo utilizador da app)
-        /*
-        Imóvel emLisboa = new Imóvel("Rua do Olival", 39, 1200, 739, "Lisboa");
-        emLisboa.preço = 100000;
-        Imóvel noPorto = new Imóvel("Rua do Dragão", 51, 2200, 445, "Porto");
-        Imóvel emAlmada = new Imóvel("Rua Direita", 6, 'E', 2800, 100, "Almada", 38.67423167513273, -9.169060891300655);
-        Cliente vasco = new Cliente("Vasco", "vasco@fidelidade.pt", "Arroios");
-        Cliente délia = new Cliente("Délia", "delia@fidelidade.pt");
-         */
+        // Preparação para posteriormente poder distribuir a app (em várias máquinas físicas)
+        BaseDeDados db = new BaseDeDados(); // Data TIER (camada que permite guardar valores)
+        Imobiliária remax = new Imobiliária(db); // Business TIER (camada de objetos e algoritmos do nosso negócio)
+        interfaceGráfica = new GUI(remax); // Client TIER (camada de componentes gráficos, menus e ecrãs, utilizados pelo utilizador da app)
+        // Tudo preparado. Agora vamos simular que alguem da imobiliária utiliza a app.
+        simularUtilização();
+    }
+    
+    static void simularUtilização() {
+        // Simular que um utilizador preencheu campos no ecrã de novos imóveis e clicou no botão "Gerir novo imóvel"
+        interfaceGráfica.gerirNovoImóvel("Praça da República", 23, 1000, 525, "Lisboa");
+        interfaceGráfica.gerirNovoImóvel("Rua do Prazer", 77, 2000, 325, "Faro");
+        interfaceGráfica.gerirNovoCliente("Elisabete", 351214587965L);
     }
 
 }

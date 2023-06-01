@@ -4,6 +4,7 @@ public class Cliente {
     String nome;
     int NIF;
     String email;
+    long telefone;
     Morada morada;
 
     Cliente(String nome, String email, String freguesia) {
@@ -20,6 +21,11 @@ public class Cliente {
         }
         this.nome = nome;
         this.email = email;
+    }
+
+    Cliente(String nome, long telefone) {
+        this.nome = nome;
+        this.telefone = telefone;
     }
 
 }
