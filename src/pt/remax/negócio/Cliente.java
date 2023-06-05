@@ -1,18 +1,20 @@
+package pt.remax.negócio;
+
 
 public class Cliente {
 
-    String nome;
-    int NIF;
-    String email;
-    long telefone;
-    Morada morada;
+    private String nome;
+    private int NIF;
+    private String email;
+    private long telefone;
+    private Morada morada;
 
-    Cliente(String nome, String email, String freguesia) {
+    public Cliente(String nome, String email, String freguesia) {
         this(nome, email);
         morada = new Morada(freguesia);
     }
 
-    Cliente(String nome, String email) {
+    public Cliente(String nome, String email) {
         if (nome.length() < 5) {
             // não aceitar 
         }

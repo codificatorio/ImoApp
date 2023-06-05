@@ -1,5 +1,11 @@
 
-public class ImoApp {
+import pt.remax.utilizador.GUI;
+import pt.remax.dados.BaseDeDados;
+import pt.remax.negócio.Imóvel;
+import pt.remax.negócio.Imobiliária;
+
+
+class ImoApp {
     
     static GUI interfaceGráfica;
 
@@ -15,9 +21,13 @@ public class ImoApp {
     
     static void simularUtilização() {
         // Simular que um utilizador preencheu campos no ecrã de novos imóveis e clicou no botão "Gerir novo imóvel"
-        interfaceGráfica.gerirNovoImóvel("Praça da República", 23, 1000, 525, "Lisboa");
-        interfaceGráfica.gerirNovoImóvel("Rua do Prazer", 77, 2000, 325, "Faro");
-        interfaceGráfica.gerirNovoCliente("Elisabete", 351214587965L);
+        Imóvel emLisboa = interfaceGráfica.acionarGerirNovoImóvel("Praça da República", 23, 1000, 525, "Lisboa");
+        Imóvel emFaro = interfaceGráfica.acionarGerirNovoImóvel("Rua do Prazer", 77, 2000, 325, "Faro");
+        interfaceGráfica.acionarGerirNovoCliente("Elisabete", 351214587965L);
+        // Simular que é atribuído um valor (preço de venda) a um desses imóveis
+        interfaceGráfica.acionarValorizar(emLisboa, -100000);
+        // Ups
+        interfaceGráfica.acionarValorizar(emLisboa, 100000);
     }
 
 }

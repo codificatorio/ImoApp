@@ -1,3 +1,5 @@
+package pt.remax.negócio;
+
 
 class Coordenadas {
 
