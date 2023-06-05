@@ -1,14 +1,13 @@
 package pt.remax.negócio;
 
-
 class Morada {
 
-    String rua;
-    int nr;
-    char porta;
-    int andar;
-    Localidade localidade;
-    Coordenadas coordenadas;
+    private String rua;
+    private int nr;
+    private char porta;
+    private int andar;
+    private Localidade localidade;
+    private Coordenadas coordenadas;
 
     Morada(String rua, int nr, int cpPrimário, int cpSecundário, String freguesia) {
         this.rua = rua;
@@ -24,6 +23,10 @@ class Morada {
         this(rua, nr, cpPrimário, cpSecundário, freguesia);
         this.porta = porta;
         coordenadas = new Coordenadas(coordenadasX, coordenadasY);
+    }
+
+    boolean éEm(String freguesia) {
+        return localidade.getFreguesia().equals(freguesia);
     }
 
 }

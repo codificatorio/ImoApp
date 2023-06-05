@@ -22,7 +22,11 @@ public class BaseDeDados {
     }
 
     private void precarregarImóveis() {
-        tabelaImóveis.add(new pt.remax.negócio.Imóvel("Rua do Olival", 39, 1200, 739, "Lisboa"));
+        tabelaImóveis.add(new Imóvel("Rua do Olival", 39, 1200, 739, "Lisboa"));
+        tabelaImóveis.get(0).valorizar(120000);
+        tabelaImóveis.add(new Imóvel("Rua da Pereira", 25, 1350, 213, "Lisboa"));
+        tabelaImóveis.get(1).valorizar(75000);
+        tabelaImóveis.add(new Imóvel("Rua dos Estrangeiros", 11, 1100, 544, "Lisboa"));
         tabelaImóveis.add(new Imóvel("Rua do Dragão", 51, 2200, 445, "Porto"));
         tabelaImóveis.add(new Imóvel("Rua Direita", 6, 'E', 2800, 100, "Almada", 38.67423167513273, -9.169060891300655));
     }

@@ -16,13 +16,21 @@ public class Imóvel {
         morada = new Morada(rua, nr, porta, cpPrimário, cpSecundário, freguesia, coordenadasX, coordenadasY);
     }
 
-    void valorizar(int valor) {
+    public void valorizar(int valor) {
         // TODO aqui devemos validar
         if (valor < 50000) {
             System.out.println("Aviso: nesta imobiliária o valor dos imóveis deve ser > 500000");
             return;
         }
         this.valor = valor;
+    }
+
+    boolean éEm(String freguesia) {
+        return morada.éEm(freguesia);
+    }
+
+    boolean éMaisCaroQue(int mínimo) {
+        return valor >= mínimo;
     }
 
 }

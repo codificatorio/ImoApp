@@ -32,4 +32,14 @@ public class Imobiliária {
         valorizado.valorizar(valor);
     }
 
+    public ArrayList<Imóvel> procurar(String freguesia, int valorMínimo) {
+        ArrayList<Imóvel> resultado = new ArrayList<>();
+        // TODO instruções que procuram na coleção de todos os imóveis
+        for (Imóvel imóvel : cacheImóveis) {
+            if(imóvel.éEm(freguesia) && imóvel.éMaisCaroQue(valorMínimo))
+                resultado.add(imóvel);
+        }
+        return resultado;
+    }
+
 }

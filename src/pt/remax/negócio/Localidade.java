@@ -3,10 +3,10 @@ package pt.remax.negócio;
 
 class Localidade {
 
-    String distrito;
-    String concelho;
-    String freguesia;
-    CódigoPostal códigoPostal;  // p.ex. 1200-739
+    private String distrito;
+    private String concelho;
+    private String freguesia;
+    private CódigoPostal códigoPostal;  // p.ex. 1200-739
 
     public Localidade(String freguesia, int primário, int secundário) {
         this.freguesia = freguesia;
@@ -15,6 +15,10 @@ class Localidade {
 
     public Localidade(String freguesia) {
         this.freguesia = freguesia;
+    }
+
+    public String getFreguesia() {
+        return freguesia;
     }
     
     
