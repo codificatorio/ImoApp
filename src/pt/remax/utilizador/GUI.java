@@ -1,6 +1,7 @@
 package pt.remax.utilizador;
 
 import java.util.ArrayList;
+import java.util.List;
 import pt.remax.negócio.Imóvel;
 import pt.remax.negócio.Imobiliária;
 
@@ -41,6 +42,10 @@ public class GUI {
 
     public void acionarAbrirAgência(String rua, int nr, int cp0, int cp1, String freguesia, String email) {
         imobiliaria.abrir(rua, nr, cp0, cp1, freguesia, email);
+    }
+
+    public List<Imóvel> acionarProcurarImóvel(int códigoPostalPrimárioMínimo, int códigoPostalPrimárioMáximo) {
+        return imobiliaria.procurar(códigoPostalPrimárioMínimo, códigoPostalPrimárioMáximo);
     }
 
 }

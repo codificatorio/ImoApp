@@ -35,5 +35,9 @@ public class Imóvel extends Prédio {
     boolean éMaisCaroQue(int mínimo) {
         return valor >= mínimo;
     }
+    
+    int getCódigoPostalPrimário() {
+        return morada.getCódigoPostalPrimário();
+    }
 
 }

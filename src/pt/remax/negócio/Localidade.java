@@ -24,6 +24,10 @@ class Localidade {
     public String toString() {
         return freguesia;
     }
+
+    int getCódigoPostalPrimário() {
+        return códigoPostal.primário;
+    }
     
     
 

@@ -2,6 +2,8 @@ package pt.remax.negócio;
 
 import pt.remax.dados.BaseDeDados;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Imobiliária {
 
@@ -28,7 +30,7 @@ public class Imobiliária {
     public void gerir(String nome, String email) {
         cacheClientes.add(new Cliente(nome, email));
     }
-    
+
     public void abrir(String rua, int nr, int cpPrimário, int cpSecundário, String freguesia, String email) {
         agências.add(new Agência(rua, nr, cpPrimário, cpSecundário, freguesia, email));
     }
@@ -41,18 +43,24 @@ public class Imobiliária {
         ArrayList<Imóvel> encontrados = new ArrayList<>();
         // iniciar a procura na coleção de todos os imóveis, com os critérios fornecidos
         for (Imóvel imóvel : cacheImóveis) {
-            if (imóvel.éEm(freguesia) && imóvel.éMaisCaroQue(valorMínimo)) {
+            if (imóvel.éEm(freguesia) && imóvel.éMaisCaroQue(valorMínimo)) { // aplicar um "filtro"
                 encontrados.add(imóvel);
             }
         }
         return encontrados;
     }
-    
+
     public ArrayList<Destinatário> listarDestinatários() {
         ArrayList<Destinatário> destinários = new ArrayList<>();
         destinários.addAll(cacheClientes);
         destinários.addAll(agências);
         return destinários;
+    }
+
+    public List<Imóvel> procurar(int códigoPostalPrimárioMínimo, int códigoPostalPrimárioMáximo) {
+        return cacheImóveis.stream()
+                .filter(imóvel -> imóvel.getCódigoPostalPrimário() >= códigoPostalPrimárioMínimo && imóvel.getCódigoPostalPrimário() < códigoPostalPrimárioMáximo)
+                .collect(Collectors.toList());
     }
 
 }

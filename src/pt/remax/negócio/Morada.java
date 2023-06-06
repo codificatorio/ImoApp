@@ -34,4 +34,8 @@ class Morada {
         return rua + " " + nr + ", " + localidade;
     }
 
+    int getCódigoPostalPrimário() {
+        return localidade.getCódigoPostalPrimário();
+    }
+
 }
