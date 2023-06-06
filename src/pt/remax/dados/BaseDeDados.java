@@ -3,6 +3,9 @@ package pt.remax.dados;
 import pt.remax.negócio.Imóvel;
 import pt.remax.negócio.Cliente;
 import java.util.ArrayList;
+import pt.remax.negócio.Agente;
+import pt.remax.negócio.Cor;
+import pt.remax.negócio.Pessoa;
 
 public class BaseDeDados {
 
@@ -12,18 +15,20 @@ public class BaseDeDados {
     //
     // abordagem moderna/atual (com coleções)
     private ArrayList<Imóvel> tabelaImóveis;
-    private ArrayList<Cliente> tabelaClientes;
+    //private ArrayList<Cliente> tabelaClientes;
+    private ArrayList<Pessoa> tabelaPessoas;
 
     public BaseDeDados() {
         tabelaImóveis = new ArrayList<>();
-        tabelaClientes = new ArrayList<>();
+        tabelaPessoas = new ArrayList<>();
         precarregarImóveis();
-        precarregarClientes();
+        precarregarPessoas();
     }
 
     private void precarregarImóveis() {
         tabelaImóveis.add(new Imóvel("Rua do Olival", 39, 1200, 739, "Lisboa"));
         tabelaImóveis.get(0).valorizar(120000);
+        tabelaImóveis.get(0).setCor(Cor.VERMELHO);
         tabelaImóveis.add(new Imóvel("Rua da Pereira", 25, 1350, 213, "Lisboa"));
         tabelaImóveis.get(1).valorizar(75000);
         tabelaImóveis.add(new Imóvel("Rua dos Estrangeiros", 11, 1100, 544, "Lisboa"));
@@ -31,9 +36,10 @@ public class BaseDeDados {
         tabelaImóveis.add(new Imóvel("Rua Direita", 6, 'E', 2800, 100, "Almada", 38.67423167513273, -9.169060891300655));
     }
 
-    private void precarregarClientes() {
-        tabelaClientes.add(new Cliente("Vasco", "vasco@fidelidade.pt", "Arroios"));
-        tabelaClientes.add(new Cliente("Délia", "delia@fidelidade.pt"));
+    private void precarregarPessoas() {
+        tabelaPessoas.add(new Cliente("Vasco", "vasco@fidelidade.pt", "Arroios"));
+        tabelaPessoas.add(new Cliente("Délia", "delia@fidelidade.pt"));
+        tabelaPessoas.add(new Agente("Joao", "joao@remax.pt"));
     }
 
     public ArrayList<Imóvel> selectImóveis(String where) { // TODO: avaliar o "where" (em Java chama-se "Predicate")
@@ -44,7 +50,12 @@ public class BaseDeDados {
 
     public ArrayList<Cliente> selectClientes(String where) { // TODO: avaliar o "where"
         ArrayList<Cliente> extrato = new ArrayList<>();
-        extrato.addAll(tabelaClientes);
+        //extrato.addAll(tabelaPessoas);
+        for (Pessoa pessoa : tabelaPessoas) {
+            if (pessoa instanceof Cliente) {
+                extrato.add((Cliente) pessoa);
+            }
+        }
         return extrato;
     }
 

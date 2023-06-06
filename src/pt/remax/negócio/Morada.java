@@ -26,7 +26,12 @@ class Morada {
     }
 
     boolean éEm(String freguesia) {
-        return localidade.getFreguesia().equals(freguesia);
+        return localidade.éEm(freguesia);
+    }
+
+    @Override
+    public String toString() {
+        return "Morada{" + "rua=" + rua + ", nr=" + nr + ", localidade=" + localidade + '}';
     }
 
 }

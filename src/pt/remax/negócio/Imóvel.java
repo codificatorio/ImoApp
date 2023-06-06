@@ -1,12 +1,15 @@
 package pt.remax.negócio;
 
-public class Imóvel {
+public class Imóvel extends Prédio {
 
     private String tipo;
     private boolean emVenda;
-    private Morada morada;
+    //private Morada morada;
     private int valor;
     private java.time.LocalDate dataDeLicenciamento;
+    //private int área;
+    //private int divisões;
+    //private Caderneta caderneta;
 
     public Imóvel(String rua, int nr, int cpPrimário, int cpSecundário, String freguesia) {
         morada = new Morada(rua, nr, cpPrimário, cpSecundário, freguesia);
@@ -19,7 +22,7 @@ public class Imóvel {
     public void valorizar(int valor) {
         // TODO aqui devemos validar
         if (valor < 50000) {
-            System.out.println("Aviso: nesta imobiliária o valor dos imóveis deve ser > 500000");
+            System.out.println("Aviso: nesta imobiliária o valor dos imóveis deve ser > 50000");
             return;
         }
         this.valor = valor;

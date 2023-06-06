@@ -1,6 +1,5 @@
 package pt.remax.negócio;
 
-
 class Localidade {
 
     private String distrito;
@@ -17,8 +16,13 @@ class Localidade {
         this.freguesia = freguesia;
     }
 
-    public String getFreguesia() {
-        return freguesia;
+    boolean éEm(String freguesia) {
+        return this.freguesia.equals(freguesia);
+    }
+
+    @Override
+    public String toString() {
+        return "Localidade{" + "freguesia=" + freguesia + '}';
     }
     
     

@@ -7,6 +7,7 @@ public class Imobiliária {
 
     private ArrayList<Imóvel> cacheImóveis;
     private ArrayList<Cliente> cacheClientes;
+    private ArrayList<Agência> agências; // TODO criar tabela na DB
     private BaseDeDados db;
 
     public Imobiliária(BaseDeDados db) {
@@ -14,6 +15,7 @@ public class Imobiliária {
         // precarregar alguns imóveis e clientes (nesta demonstração serão precarregados todos)
         cacheImóveis = db.selectImóveis("WHERE ..."); // ainda não funcional (analogia com bases de dados "SELECT FROM ... WHERE ...")
         cacheClientes = db.selectClientes("WHERE ...");
+        agências = new ArrayList<>();
     }
 
     public Imóvel gerir(String rua, int nr, int cpPrimário, int cpSecundário, String freguesia) {
@@ -23,9 +25,12 @@ public class Imobiliária {
         // TODO: sincronizar com a db
     }
 
-    public void gerir(String nome, long telefone) {
-        cacheClientes.add(new Cliente(nome, telefone));
-        // TODO: sincronizar com a db
+    public void gerir(String nome, String email) {
+        cacheClientes.add(new Cliente(nome, email));
+    }
+    
+    public void abrir(String rua, int nr, int cpPrimário, int cpSecundário, String freguesia, String email) {
+        agências.add(new Agência(rua, nr, cpPrimário, cpSecundário, freguesia, email));
     }
 
     public void valorizar(Imóvel valorizado, int valor) {
@@ -33,13 +38,21 @@ public class Imobiliária {
     }
 
     public ArrayList<Imóvel> procurar(String freguesia, int valorMínimo) {
-        ArrayList<Imóvel> resultado = new ArrayList<>();
-        // TODO instruções que procuram na coleção de todos os imóveis
+        ArrayList<Imóvel> encontrados = new ArrayList<>();
+        // iniciar a procura na coleção de todos os imóveis, com os critérios fornecidos
         for (Imóvel imóvel : cacheImóveis) {
-            if(imóvel.éEm(freguesia) && imóvel.éMaisCaroQue(valorMínimo))
-                resultado.add(imóvel);
+            if (imóvel.éEm(freguesia) && imóvel.éMaisCaroQue(valorMínimo)) {
+                encontrados.add(imóvel);
+            }
         }
-        return resultado;
+        return encontrados;
+    }
+    
+    public ArrayList<Destinatário> listarDestinatários() {
+        ArrayList<Destinatário> destinários = new ArrayList<>();
+        destinários.addAll(cacheClientes);
+        destinários.addAll(agências);
+        return destinários;
     }
 
 }
