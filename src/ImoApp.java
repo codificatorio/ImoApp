@@ -37,8 +37,12 @@ class ImoApp {
         interfaceGráfica.acionarGerirNovoCliente("Elisabete", "elisabete@fidelidade.pt");
 
         // Simular que é atribuído um valor (preço de venda) a um desses imóveis
-        interfaceGráfica.acionarValorizar(emLisboa, -100000); // valor será validado e não aceite
-        interfaceGráfica.acionarValorizar(emLisboa, 100000); // 2a tentativa que será aceite (valor positivo)
+        try {
+            interfaceGráfica.acionarValorizar(emLisboa, -100000); // valor será validado e não aceite
+            interfaceGráfica.acionarValorizar(emLisboa, 100000); // 2a tentativa que será aceite (valor positivo)
+        } catch (Exception problema) {
+            System.out.println(problema);
+        }
 
         // Simular uma procura (um agente preenche um critério de procura num ecrã)
         System.out.println("\nIniciamos uma procura dos imóveis em Lisboa > €100000");

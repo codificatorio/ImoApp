@@ -20,10 +20,11 @@ public class Imóvel extends Prédio {
     }
 
     public void valorizar(int valor) {
-        // TODO aqui devemos validar
-        if (valor < 50000) {
-            System.out.println("Erro: nesta imobiliária o valor dos imóveis deve ser > 50000");
-            return;
+        // aqui devemos validar
+        if (valor < 25000) {
+            //System.out.println("Erro: nesta imobiliária o valor dos imóveis deve ser > 25000");
+            //return;
+            throw new ImóvelRecusado("Nesta imobiliária o valor dos imóveis deve ser > 25000");
         }
         this.valor = valor;
     }
@@ -35,7 +36,7 @@ public class Imóvel extends Prédio {
     boolean éMaisCaroQue(int mínimo) {
         return valor >= mínimo;
     }
-    
+
     int getCódigoPostalPrimário() {
         return morada.getCódigoPostalPrimário();
     }
