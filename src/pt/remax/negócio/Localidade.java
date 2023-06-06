@@ -22,7 +22,7 @@ class Localidade {
 
     @Override
     public String toString() {
-        return "Localidade{" + "freguesia=" + freguesia + '}';
+        return freguesia;
     }
     
     

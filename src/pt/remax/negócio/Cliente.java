@@ -23,8 +23,8 @@ public class Cliente extends Pessoa implements Destinatário {
     }
 
     @Override
-    public void remeter(String mensagem) {
-        String email = getEmail();
+    public String getDestino() {
+        return getEmail();
     }
 
 }

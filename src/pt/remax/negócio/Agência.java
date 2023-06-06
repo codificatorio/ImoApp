@@ -17,7 +17,8 @@ class Agência extends Prédio implements Destinatário {
     }
 
     @Override
-    public void remeter(String mensagem) {
-        String email = contactos.get(0).getEmail();   }
+    public String getDestino() {
+        return contactos.get(0).getEmail();
+    }
 
 }

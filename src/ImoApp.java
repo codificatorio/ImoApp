@@ -12,7 +12,7 @@ class ImoApp {
     static GUI interfaceGráfica;
 
     public static void main(String[] args) {
-        System.out.println("Bem-vindos à ImoApp");
+        System.out.println("Bem-vindos à ImoApp\n");
         // Preparação para posteriormente poder distribuir a app (em várias máquinas físicas)
         BaseDeDados db = new BaseDeDados(); // Data TIER (camada que permite guardar valores)
         Imobiliária remax = new Imobiliária(db); // Business TIER (camada de objetos e algoritmos do nosso negócio)
@@ -37,13 +37,14 @@ class ImoApp {
         interfaceGráfica.acionarValorizar(emLisboa, -100000); // valor será validado e não aceite
         interfaceGráfica.acionarValorizar(emLisboa, 100000); // 2a tentativa que será aceite (valor positivo)
         // Simular uma procura (um agente preenche um critério de procura num ecrã)
+        System.out.println("\nIniciamos uma procura dos imóveis em Lisboa > €100000");
         ArrayList<Imóvel> encontrados = interfaceGráfica.acionarProcurarImóvel("Lisboa", 100000);
         System.out.println("Encontrámos os seguintes imóveis:");
         //System.out.println(encontrados);
         for (Imóvel imóvel : encontrados) {
             System.out.println(imóvel.toString());
         }
-        interfaceGráfica.acionarAbrirAgência("Rua Alexandre Herculano",33, 1100, 546, "São Mamede", "saomamede@remax.pt");
+        interfaceGráfica.acionarAbrirAgência("Rua Alexandre Herculano", 33, 1100, 546, "São Mamede", "saomamede@remax.pt");
 
     }
 

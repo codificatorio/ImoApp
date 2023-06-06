@@ -31,7 +31,7 @@ class Morada {
 
     @Override
     public String toString() {
-        return "Morada{" + "rua=" + rua + ", nr=" + nr + ", localidade=" + localidade + '}';
+        return rua + " " + nr + ", " + localidade;
     }
 
 }

@@ -24,9 +24,14 @@ public abstract class Pessoa {
         this.nome = nome;
         this.contacto = new Contacto(email);
     }
-    
+
     String getEmail() {
         return contacto.getEmail();
+    }
+
+    @Override
+    public String toString() {
+        return getClass().getSimpleName() + " · " + nome;
     }
 
 }

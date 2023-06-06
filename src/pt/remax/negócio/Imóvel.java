@@ -22,7 +22,7 @@ public class Imóvel extends Prédio {
     public void valorizar(int valor) {
         // TODO aqui devemos validar
         if (valor < 50000) {
-            System.out.println("Aviso: nesta imobiliária o valor dos imóveis deve ser > 50000");
+            System.out.println("Erro: nesta imobiliária o valor dos imóveis deve ser > 50000");
             return;
         }
         this.valor = valor;

@@ -8,8 +8,10 @@ public class Marketing {
     }
 
     public static void enviar(String mensagem, ArrayList<Destinatário> destinatários) {
+        System.out.println("\nA mensagem \"" + mensagem + "\" será enviada a estes destinatários:\n");
         for (Destinatário destinatário : destinatários) {
-            destinatário.remeter(mensagem);
+            // simulação do envio
+            System.out.println(destinatário.getDestino() + "· " + destinatário);
         }
     }
 

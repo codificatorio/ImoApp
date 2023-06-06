@@ -23,7 +23,7 @@ abstract class Prédio extends Object {
 
     @Override
     public String toString() {
-        return morada.toString();
+        return getClass().getSimpleName() + " · " + morada.toString();
     }
 
 }
